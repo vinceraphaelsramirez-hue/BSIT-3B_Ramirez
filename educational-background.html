@@ -3,84 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educational Background</title>
+    <title>Educational Background | BSIT</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: "Times New Roman", serif;
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 30px;
+            font-family: "Times New Roman", Times, serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #1e293b;
             line-height: 1.7;
         }
-        h2 {
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #000;
-            padding-bottom: 5px;
-            margin-bottom: 25px;
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
         }
+
+        .header-bar {
+            background: linear-gradient(90deg, #0f4c75 0%, #1e88e5 100%);
+            padding: 30px 40px;
+            color: white;
+        }
+
+        .header-bar h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .header-bar p {
+            margin-top: 6px;
+            opacity: 0.85;
+            font-size: 1rem;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .content {
+            padding: 35px 40px;
+        }
+
         table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
         }
+
+        tr {
+            transition: background-color 0.25s ease;
+        }
+
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+
         td {
+            padding: 20px 12px;
+            border-bottom: 1px solid #e2e8f0;
             vertical-align: top;
-            padding: 10px 6px;
+            font-family: "Times New Roman", Times, serif;
         }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         .level {
-            font-weight: bold;
-            width: 28%;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0f4c75;
+            width: 26%;
         }
+
         .details {
-            width: 57%;
+            width: 59%;
         }
+
+        .details .school-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1e293b;
+        }
+
+        .details .program {
+            color: #2563eb;
+            font-weight: 500;
+            margin: 4px 0;
+        }
+
+        .details .address {
+            font-size: 1rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
         .year {
             width: 15%;
             text-align: right;
+            font-weight: 600;
+            color: #1e88e5;
+            font-size: 1rem;
+        }
+
+        .tertiary-badge {
+            display: inline-block;
+            margin-top: 8px;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 25px 20px;
+            }
+            .header-bar {
+                padding: 25px 20px;
+            }
+            td {
+                display: block;
+                width: 100%;
+            }
+            .year {
+                text-align: left;
+                padding-top: 0;
+                padding-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-bar">
+            <h1>Educational Background</h1>
+            <p>Bachelor of Science in Information Technology Student</p>
+        </div>
 
-<h2>Educational Background</h2>
+        <!-- Main Content -->
+        <div class="content">
+            <table>
+                <tr>
+                    <td class="level">Primary Level</td>
+                    <td class="details">
+                        <div class="school-name">Doña Brigida Elementary School</div>
+                        <div class="address">Doña Brigida, Tolosa, Leyte</div>
+                    </td>
+                    <td class="year">2012–2018</td>
+                </tr>
 
-<table>
-    <tr>
-        <td class="level">Primary Level</td>
-        <td class="details">
-            Doña Brigida Elementary School<br>
-            Doña Brigida, Tolosa, Leyte
-        </td>
-        <td class="year">2012–2018</td>
-    </tr>
-    <tr>
-        <td class="level">Junior High</td>
-        <td class="details">
-            Tolosa National High School<br>
-            Malbog, Tolosa, Leyte
-        </td>
-        <td class="year">2018–2022</td>
-    </tr>
-    <tr>
-        <td class="level">Senior High</td>
-        <td class="details">
-            Tolosa Stand-alone<br>
-            Humanities and Social Sciences<br>
-            Malbog, Tolosa, Leyte
-        </td>
-        <td class="year">2022–2024</td>
-    </tr>
-    <tr>
-        <td class="level">Tertiary Level</td>
-        <td class="details">
-            EVSU – Dulag Campus<br>
-            Bachelor of Science in Information Technology<br>
-            Dulag, Leyte
-        </td>
-        <td class="year">Present</td>
-    </tr>
-</table>
+                <tr>
+                    <td class="level">Junior High</td>
+                    <td class="details">
+                        <div class="school-name">Tolosa National High School</div>
+                        <div class="address">Malbog, Tolosa, Leyte</div>
+                    </td>
+                    <td class="year">2018–2022</td>
+                </tr>
 
+                <tr>
+                    <td class="level">Senior High</td>
+                    <td class="details">
+                        <div class="school-name">Tolosa Stand-alone</div>
+                        <div class="program">Humanities and Social Sciences (HUMSS)</div>
+                        <div class="address">Malbog, Tolosa, Leyte</div>
+                    </td>
+                    <td class="year">2022–2024</td>
+                </tr>
+
+                <tr>
+                    <td class="level">Tertiary Level</td>
+                    <td class="details">
+                        <div class="school-name">Eastern Visayas State University – Dulag Campus</div>
+                        <div class="program">Bachelor of Science in Information Technology</div>
+                        <div class="address">Dulag, Leyte</div>
+                        <span class="tertiary-badge">Currently Enrolled</span>
+                    </td>
+                    <td class="year">Present</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

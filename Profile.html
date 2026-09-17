@@ -3,141 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vince Raphael S. Ramirez - Profile</title>
+    <title>Vince Raphael S. Ramirez | Personal Profile</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Times New Roman', Times, serif;
+        }
+
+        :root {
+            --primary: #0d47a1;
+            --secondary: #1565c0;
+            --accent: #e3f2fd;
+            --dark: #263238;
+            --light: #f5f7fa;
+            --muted: #607d8b;
         }
 
         body {
-            background-color: #ffffff;
-            color: #000000;
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
+            font-family: 'Segoe UI', Roboto, 'Times New Roman', Times, serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--dark);
+            line-height: 1.7;
         }
 
-        .header-section {
+        .profile-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(13, 71, 161, 0.12);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .profile-header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px 35px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #000;
-            padding-bottom: 20px;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .header-text h1 {
-            font-size: 28px;
-            font-weight: bold;
+        .header-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .header-info h1 {
+            font-size: 32px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
+            margin-bottom: 8px;
         }
 
-        .header-text p {
-            font-size: 16px;
-            margin-top: 5px;
-            line-height: 1.5;
+        .tagline {
+            font-size: 17px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .contact-details p {
+            font-size: 15px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-details a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .contact-details a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .profile-picture-container {
+            flex-shrink: 0;
         }
 
         .profile-photo {
-            width: 140px;
-            height: 160px;
-            border: 1px solid #000;
+            width: 160px;
+            height: 200px;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
             object-fit: cover;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .info-section h2 {
-            font-size: 18px;
-            font-weight: bold;
+        /* Main Content */
+        .profile-body {
+            padding: 35px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 20px;
             text-transform: uppercase;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #000;
+            letter-spacing: 0.5px;
         }
 
-        .info-row {
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 25px;
+        }
+
+        .info-item {
             display: flex;
-            margin-bottom: 8px;
-            font-size: 16px;
+            flex-direction: column;
         }
 
-        .label {
-            width: 180px;
+        .info-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .info-label {
             font-weight: 600;
-            display: inline-block;
+            color: var(--dark);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
-        .value {
-            flex: 1;
+        .info-value {
+            font-size: 15px;
+            color: #37474f;
+            padding-top: 2px;
+        }
+
+        .divider-row {
+            grid-column: 1 / -1;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 8px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-header {
+                justify-content: center;
+                text-align: center;
+            }
+            .contact-details p {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header with Name, Address, Contact & Photo -->
-    <div class="header-section">
-        <div class="header-text">
-            <h1>Vince Raphael S. Ramirez</h1>
-            <p>Zone 5, Brgy. Doña Brigida, Tolosa, Leyte</p>
-            <p>rvincraphaels@gmial.com</p>
-            <p>09054980336</p>
-        </div>
-        <img src="c:\Users\vince raphael\OneDrive\Pictures\Camera Roll\WIN_20260317_15_13_23_Pro.jpg" 
-        alt="Vince Raphael S. Ramirez" 
-        class="profile-photo">
-    </div>
+    <div class="profile-wrapper">
+        <!-- Header with Photo & Contact -->
+        <header class="profile-header">
+            <div class="header-info">
+                <h1>Vince Raphael S. Ramirez</h1>
+                <p class="tagline">BSIT Student | Aspiring Developer | Tech Enthusiast</p>
+                <div class="contact-details">
+                    <p>📍 Zone 5, Brgy. Doña Brigida, Tolosa, Leyte</p>
+                    <p>📧 <a href="mailto:rvincraphaels@gmail.com">rvincraphaels@gmail.com</a></p>
+                    <p>📞 09054980336</p>
+                </div>
+            </div>
+            <div class="profile-picture-container">
+                <img 
+                    src="file:///c:/Users/vince raphael/OneDrive/Pictures/Camera Roll/Raphael.jpg" 
+                    alt="Vince Raphael S. Ramirez" 
+                    class="profile-photo"
+                >
+            </div>
+        </header>
 
-    <!-- Personal Information Section -->
-    <div class="info-section">
-        <h2>Personal Information</h2>
-        
-        <div class="info-row">
-            <span class="label">Date of birth:</span>
-            <span class="value">12/26/2005</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Place of Birth:</span>
-            <span class="value">Palo, Leyte</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Religion:</span>
-            <span class="value">Roman Catholic</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Language:</span>
-            <span class="value">Waray-waray, Tagalog, English</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Sex:</span>
-            <span class="value">Male</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Height:</span>
-            <span class="value">162cm</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Weight:</span>
-            <span class="value">50kg</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Citizenship:</span>
-            <span class="value">Filipino</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Civil Status:</span>
-            <span class="value">Single</span>
-        </div>
-        <br>
-        <div class="info-row">
-            <span class="label">Father:</span>
-            <span class="value">Vincent A. Ramirez</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Mother:</span>
-            <span class="value">Raquel S. Ramirez</span>
-        </div>
+        <!-- Main Content -->
+        <main class="profile-body">
+            <!-- Personal Information -->
+            <section class="section">
+                <h2 class="section-title">Personal Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Date of Birth</span>
+                        <span class="info-value">December 26, 2005</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Place of Birth</span>
+                        <span class="info-value">Palo, Leyte</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Religion</span>
+                        <span class="info-value">Roman Catholic</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Languages Spoken</span>
+                        <span class="info-value">Waray-waray, Tagalog, English</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Gender</span>
+                        <span class="info-value">Male</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Height / Weight</span>
+                        <span class="info-value">162 cm / 50 kg</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Citizenship</span>
+                        <span class="info-value">Filipino</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Civil Status</span>
+                        <span class="info-value">Single</span>
+                    </div>
+                    
+                    <div class="divider-row"></div>
+                    
+                    <div class="info-item">
+                        <span class="info-label">Father's Name</span>
+                        <span class="info-value">Vincent A. Ramirez</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Mother's Name</span>
+                        <span class="info-value">Raquel S. Ramirez</span>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 </body>
 </html>

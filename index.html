@@ -3,137 +3,454 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity-2 Dashboard</title>
+    <title>Vince Raphael S. Ramirez | Personal Profile</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        :root {
+            --primary: #0d47a1;
+            --secondary: #1565c0;
+            --accent: #e3f2fd;
+            --dark: #263238;
+            --light: #f5f7fa;
+            --muted: #607d8b;
         }
 
         body {
-            background-color: #f0f4f8;
-            color: #1e293b;
-            padding: 20px;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Roboto, 'Times New Roman', Times, serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--dark);
+            line-height: 1.7;
         }
 
-        .dashboard-header {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        .profile-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(13, 71, 161, 0.12);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .profile-header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 25px 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 40px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .dashboard-header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+        .header-info {
+            flex: 1;
+            min-width: 300px;
         }
 
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .dashboard-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease;
-        }
-
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .dashboard-card h3 {
-            color: #475569;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .card-value {
-            font-size: 2rem;
+        .header-info h1 {
+            font-size: 32px;
             font-weight: 700;
-            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
             margin-bottom: 8px;
         }
 
-        .status-online {
-            color: #16a34a !important;
+        .tagline {
+            font-size: 17px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-weight: 400;
         }
 
-        .card-desc {
-            font-size: 0.9rem;
+        .contact-details p {
+            font-size: 15px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-details a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .contact-details a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .profile-picture-container {
+            flex-shrink: 0;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 200px;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .profile-body {
+            padding: 35px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 25px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: #37474f;
+            padding-top: 2px;
+        }
+
+        .divider-row {
+            grid-column: 1 / -1;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 8px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-header {
+                justify-content: center;
+                text-align: center;
+            }
+            .contact-details p {
+                justify-content: center;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+
+        .header-bar {
+            background: linear-gradient(90deg, #0f4c75 0%, #1e88e5 100%);
+            padding: 30px 40px;
+            color: white;
+        }
+
+        .header-bar h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .header-bar p {
+            margin-top: 6px;
+            opacity: 0.85;
+            font-size: 1rem;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .content {
+            padding: 35px 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        tr {
+            transition: background-color 0.25s ease;
+        }
+
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+
+        td {
+            padding: 20px 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .level {
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0f4c75;
+            width: 26%;
+        }
+
+        .details {
+            width: 59%;
+        }
+
+        .details .school-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1e293b;
+        }
+
+        .details .program {
+            color: #2563eb;
+            font-weight: 500;
+            margin: 4px 0;
+        }
+
+        .details .address {
+            font-size: 1rem;
             color: #64748b;
+            margin-top: 4px;
         }
 
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #94a3b8;
-            font-size: 0.85rem;
+        .year {
+            width: 15%;
+            text-align: right;
+            font-weight: 600;
+            color: #1e88e5;
+            font-size: 1rem;
+        }
+
+        .tertiary-badge {
+            display: inline-block;
+            margin-top: 8px;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 25px 20px;
+            }
+            .header-bar {
+                padding: 25px 20px;
+            }
+            td {
+                display: block;
+                width: 100%;
+            }
+            .year {
+                text-align: left;
+                padding-top: 0;
+                padding-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header class="dashboard-header">
-        <h1>📊 Activity-2 Dashboard</h1>
-        <p id="current-time">Loading time...</p>
-    </header>
+    <nav>
+        <a href="#profile">Profile</a>
+        <a href="#education">Educational Background</a>
+    </nav>
 
-    <div class="dashboard-grid">
+    <section id="profile">
+        <h1>Profile</h1>
+        <div class="profile-wrapper">
         
-        <div class="dashboard-card">
-            <h3>Active Projects</h3>
-            <div class="card-value">3 Branch</div>
-            <p class="card-desc"> 09/12/26 to 09/19/26 </p>
+        <header class="profile-header">
+            <div class="header-info">
+                <h1>Vince Raphael S. Ramirez</h1>
+                <p class="tagline">BSIT Student | Aspiring Developer | Tech Enthusiast</p>
+                <div class="contact-details">
+                    <p>📍 Zone 5, Brgy. Doña Brigida, Tolosa, Leyte</p>
+                    <p>📧 <a href="mailto:rvincraphaels@gmail.com">rvincraphaels@gmail.com</a></p>
+                    <p>📞 09054980336</p>
+                </div>
+            </div>
+            <div class="profile-picture-container">
+                <img 
+                    src="file:///c:/Users/vince raphael/OneDrive/Pictures/Camera Roll/Raphael.jpg" 
+                    alt="Vince Raphael S. Ramirez" 
+                    class="profile-photo"
+                >
+            </div>
+        </header>
+
+        
+        <main class="profile-body">
+            <
+            <section class="section">
+                <h2 class="section-title">Personal Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Date of Birth</span>
+                        <span class="info-value">December 26, 2005</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Place of Birth</span>
+                        <span class="info-value">Palo, Leyte</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Religion</span>
+                        <span class="info-value">Roman Catholic</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Languages Spoken</span>
+                        <span class="info-value">Waray-waray, Tagalog, English</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Gender</span>
+                        <span class="info-value">Male</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Height / Weight</span>
+                        <span class="info-value">162 cm / 50 kg</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Citizenship</span>
+                        <span class="info-value">Filipino</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Civil Status</span>
+                        <span class="info-value">Single</span>
+                    </div>
+                    
+                    <div class="divider-row"></div>
+                    
+                    <div class="info-item">
+                        <span class="info-label">Father's Name</span>
+                        <span class="info-value">Vincent A. Ramirez</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Mother's Name</span>
+                        <span class="info-value">Raquel S. Ramirez</span>
+                    </div>
+                </div>
+            </section>
+    </section>
+
+    <section id="education">
+        <h2>Educational Background</h2>
+        <div class="container">
+        
+        <div class="header-bar">
+            <h1>Educational Background</h1>
+            <p>Bachelor of Science in Information Technology Student</p>
         </div>
 
         
-        <div class="dashboard-card">
-            <h3>Tasks Completed</h3>
-            <div class="card-value">DATE: 09/18/26</div>
-            <p class="card-desc">This week</p>
-        </div>
+        <div class="content">
+            <table>
+                <tr>
+                    <td class="level">Primary Level</td>
+                    <td class="details">
+                        <div class="school-name">Doña Brigida Elementary School</div>
+                        <div class="address">Doña Brigida, Tolosa, Leyte</div>
+                    </td>
+                    <td class="year">2012–2018</td>
+                </tr>
 
-        
-        <div class="dashboard-card">
-            <h3>System Status</h3>
-            <div class="card-value status-online">Online</div>
-            <p class="card-desc">All services running</p>
+                <tr>
+                    <td class="level">Junior High</td>
+                    <td class="details">
+                        <div class="school-name">Tolosa National High School</div>
+                        <div class="address">Malbog, Tolosa, Leyte</div>
+                    </td>
+                    <td class="year">2018–2022</td>
+                </tr>
+
+                <tr>
+                    <td class="level">Senior High</td>
+                    <td class="details">
+                        <div class="school-name">Tolosa Stand-alone</div>
+                        <div class="program">Humanities and Social Sciences (HUMSS)</div>
+                        <div class="address">Malbog, Tolosa, Leyte</div>
+                    </td>
+                    <td class="year">2022–2024</td>
+                </tr>
+
+                <tr>
+                    <td class="level">Tertiary Level</td>
+                    <td class="details">
+                        <div class="school-name">Eastern Visayas State University – Dulag Campus</div>
+                        <div class="program">Bachelor of Science in Information Technology</div>
+                        <div class="address">Dulag, Leyte</div>
+                        <span class="tertiary-badge">Currently Enrolled</span>
+                    </td>
+                    <td class="year">Present</td>
+                </tr>
+            </table>
         </div>
     </div>
-
-    <footer>
-        Dashboard GITHUB on <span id="today-date"></span>
-    </footer>
-
-    <script>
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('current-time').textContent = 
-                now.toLocaleString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
-                });
-        }
-        updateTime();
-        setInterval(updateTime, 1000);
-
-        document.getElementById('today-date').textContent = new Date().toLocaleDateString();
-    </script>
+    </section>
 
 </body>
 </html>
